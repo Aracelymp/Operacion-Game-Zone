@@ -25,6 +25,11 @@ fun main() {
     println(aplicarBeneficioUsuario(monto, "socio"))
     println(aplicarBeneficioUsuario(monto, "educacional"))
 
+    println(consola.codigo)
+    println(consola.marca)
+    println(consola.modelo)
+    println(consola.tipoUsuario)
+
 }
 fun calcularCostoBase(
     minutos: Int,
@@ -68,3 +73,9 @@ fun aplicarBeneficioUsuario(
         else -> monto
     }
 }
+val consola = Consola(
+    codigo = "CC12CD",
+    marca = "Sony",
+    modelo = "PlayStation 5",
+    tipoUsuario = "socio"
+)

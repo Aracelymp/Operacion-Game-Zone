@@ -15,4 +15,28 @@ fun main() {
     println("Sistema: $nombreSistema")
     println("Capacidad: $capacidad")
     println("Recaudación: $recaudacionTotal")
+
+    println("Costo base: $costoBase")
+    println("Total con IVA: $totalConIva")
+
 }
+fun calcularCostoBase(
+    minutos: Int,
+    tarifaHora: Double
+): Double {
+    return(minutos / 60.0) * tarifaHora
+}
+
+fun aplicarIva(monto: Double): Double {
+    return monto * 1.19
+}
+val minutosUso: Int = 75
+val tarifaHora: Double = 800.0
+
+val costoBase = calcularCostoBase(
+    minutosUso,
+    tarifaHora
+)
+
+val totalConIva = aplicarIva(costoBase)
+

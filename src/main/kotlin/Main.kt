@@ -11,6 +11,8 @@ fun main() {
     val modelo: String = "PlayStation 5"
     val minutosUso: Int = 75
     val tarifaHora: Double = 800.0
+    val monto = 10000.0
+
 
     println("Sistema: $nombreSistema")
     println("Capacidad: $capacidad")
@@ -18,6 +20,10 @@ fun main() {
 
     println("Costo base: $costoBase")
     println("Total con IVA: $totalConIva")
+
+    println(aplicarBeneficioUsuario(monto, "infantil"))
+    println(aplicarBeneficioUsuario(monto, "socio"))
+    println(aplicarBeneficioUsuario(monto, "educacional"))
 
 }
 fun calcularCostoBase(
@@ -40,3 +46,25 @@ val costoBase = calcularCostoBase(
 
 val totalConIva = aplicarIva(costoBase)
 
+val tipoUsuario: String = "Socio"
+
+fun describirTipoUsuario(tipoUsuario: String): String {
+    return when (tipoUsuario) {
+        "infantil" -> "Usuario Infantil"
+        "socio" -> "Usuario Socio"
+        "educacional" -> "Usuario Educacional"
+        else -> "Tipo de usuario inválido"
+    }
+}
+
+fun aplicarBeneficioUsuario(
+    monto: Double,
+    tipoUsuario: String
+): Double {
+    return when (tipoUsuario) {
+        "socio" -> monto * 0.80
+        "educacional" -> monto * 0.50
+        "infantil" -> monto
+        else -> monto
+    }
+}

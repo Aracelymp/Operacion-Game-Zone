@@ -12,6 +12,14 @@ fun main() {
     val minutosUso: Int = 75
     val tarifaHora: Double = 800.0
     val monto = 10000.0
+    val puesto: Puesto = Puesto(1)
+    puesto.estado = EstadoPuesto.EnProceso(
+        "registrando entrada"
+    )
+    /*puesto.estado = EstadoPuesto.EnReparacion(
+        "mantenimiento preventivo"
+    )*/
+
 
 
     println("Sistema: $nombreSistema")
@@ -29,6 +37,7 @@ fun main() {
     println(consola.marca)
     println(consola.modelo)
     println(consola.tipoUsuario)
+    println(puesto.describirEstado(puesto))
 
 }
 fun calcularCostoBase(
